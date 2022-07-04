@@ -9,32 +9,34 @@ function Signup() {
         <img src={ppl} alt="People sitting together" />
       </div>
       <div className="col col-2">
-        <h2>Create your Connect Account!</h2>
-        <div>
-          <input name="username" type="text" placeholder="Username" />
-        </div>
-        <div>
-          <input name="firstname" type="text" placeholder="First name" />
-        </div>
-        <div>
-          <input name="lastname" type="text" placeholder="Last name" />
-        </div>
-        <div>
-          <input name="email" type="text" placeholder="Email" />
-        </div>
-        <div>
-          <input name="password" type="password" placeholder="Password" />
-        </div>
-        <div>
-          <input
-            name="confirmPassword"
-            type="password"
-            placeholder="Confirm Password"
-          />
-        </div>
-        <button className="btn" type="submit">
-          Sign up
-        </button>
+        <form action="" className="col-2" method="post">
+          <h2>Create your Connect Account!</h2>
+          <div>
+            <input name="username" type="text" placeholder="Username" />
+          </div>
+          <div>
+            <input name="firstname" type="text" placeholder="First name" />
+          </div>
+          <div>
+            <input name="lastname" type="text" placeholder="Last name" />
+          </div>
+          <div>
+            <input name="email" type="text" placeholder="Email" />
+          </div>
+          <div>
+            <input name="password" type="password" placeholder="Password" />
+          </div>
+          <div>
+            <input
+              name="confirmPassword"
+              type="password"
+              placeholder="Confirm Password"
+            />
+          </div>
+          <button className="btn" type="submit">
+            Sign up
+          </button>
+        </form>
       </div>
     </section>
   );
