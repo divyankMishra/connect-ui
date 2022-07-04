@@ -1,0 +1,8 @@
+.login .col-2 {
+  padding-top: 120px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: flex-start;
+}

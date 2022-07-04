@@ -1,0 +1,49 @@
+/* CSS HEX */
+/* --crimson: #d7263dff;
+--oxford-blue: #02182bff;
+--dodger-blue: #0197f6ff;
+--blue-munsell: #448fa3ff;
+--middle-blue: #68c5dbff;
+#00926D
+#008080
+*/
+
+.nav--bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 36px;
+  background-color: #1b1b1eff;
+  color: #fff;
+  height: 36px;
+}
+.nav--right {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+}
+.nav--right a:link,
+a:visited {
+  text-decoration: none;
+  font-weight: 700;
+  color: #fff;
+}
+a:hover,
+a:active {
+  color: #c8c8c8;
+}
+
+.signup a:link,
+a:visited {
+  display: inline-block;
+  background-color: #00926d;
+  padding: 7px 15px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.signup a:hover,
+a:active {
+  background-color: #00a45b;
+  color: #fff;
+}

@@ -1,0 +1,32 @@
+/* CSS HEX */
+/* --crimson: #d7263dff;
+--oxford-blue: #02182bff;
+--dodger-blue: #0197f6ff;
+--blue-munsell: #448fa3ff;
+--middle-blue: #68c5dbff;
+#00926D
+#008080
+#02182bff
+*/
+
+.container {
+  flex: 1;
+  background-color: #1b1b1eff;
+}
+.links-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.links-row a:link,
+a:visited {
+  display: inline-block;
+  padding: 0px 40px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.links-row a:hover,
+a:active {
+  background-color: #1b1b1eff;
+}
