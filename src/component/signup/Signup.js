@@ -3,6 +3,7 @@ import "./Signup.css";
 import ppl from "../../img/peoplecomp.jpg";
 import { useState } from "react";
 import { validUsername, validEmail } from "../../util/validations";
+import { signup } from "../service/SignUp";
 
 function Signup() {
   const [user, setUser] = useState({
@@ -15,6 +16,17 @@ function Signup() {
   });
   const [formErrors, setformErrors] = useState({});
   const [btn, setbtn] = useState("");
+  const [apiErrors, setapiErrors] = useState(null);
+  function apiErr(err) {
+    if (err) {
+      return err.map((el, index) => (
+        <li key={index}>
+          <span>{el}</span>
+          <br />
+        </li>
+      ));
+    }
+  }
   function extractError(field) {
     if (formErrors[field])
       return <span className="small error">* {formErrors[field]}</span>;
@@ -81,14 +93,35 @@ function Signup() {
     }
   }
 
+  async function submitForm(e) {
+    e.preventDefault();
+    let response = await signup(user);
+    if (response.error) {
+      let errorArray = [];
+      for (const key in response.body) {
+        errorArray.push(...response.body[key]);
+      }
+      errorArray = new Set(errorArray);
+      setapiErrors([...errorArray]);
+    } else {
+      setapiErrors([]);
+    }
+  }
+
   return (
     <section className="grid-container signup">
       <div className="col col-1">
         <img src={ppl} alt="People sitting together" />
       </div>
       <div className="col col-2">
-        <form action="" className="col-2" method="post">
+        <form className="col-2" onSubmit={submitForm}>
           <h2>Create your Connect Account!</h2>
+          <div
+            className="form-error-block"
+            style={apiErrors && apiErrors.length > 0 ? {} : { display: "none" }}
+          >
+            {apiErr(apiErrors)}
+          </div>
           <div>
             <input
               name="username"

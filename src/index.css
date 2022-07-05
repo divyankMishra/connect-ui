@@ -31,7 +31,11 @@ body,
   background-color: #fbceb1;
   border: 2px solid #aa0000;
   padding: 10px 20px;
-  text-align: center;
+  /* text-align: center; */
+}
+
+.form-error-block li {
+  list-style: none;
 }
 .form-error-block span {
   color: #aa0000;
