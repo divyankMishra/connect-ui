@@ -1,9 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Post.css";
-import { AiOutlineLike } from "react-icons/ai";
+import { AiOutlineLike, AiFillLike } from "react-icons/ai";
 import { VscComment } from "react-icons/vsc";
 
 function Post(props) {
+  const [like, setlike] = useState({ likeState: false, likeCount: 0 });
+  const [isHovered, setisHovered] = useState({ isHovered: false });
+  const handleMouseEnter = () => {
+    setisHovered({ isHovered: true });
+  };
+  const handleMouseLeave = () => {
+    setisHovered({ isHovered: false });
+  };
+  useEffect(() => {
+    setlike(props.post.likes);
+  }, [props.post.likes]);
+
+  function renderbtn(like) {
+    if (like.likeState)
+      return (
+        <AiFillLike
+          className="liked"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          fill={isHovered.isHovered ? "#000" : "#0197f6ff"}
+        />
+      );
+    return (
+      <AiOutlineLike
+        className="unliked"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        fill={isHovered.isHovered ? "#0197f6ff" : "#000"}
+      />
+    );
+  }
+
   return (
     <div className="post-container">
       <h3 className="title">{props.post.title}</h3>
@@ -13,10 +45,10 @@ function Post(props) {
       <div className="post-bottom">
         <span className="like">
           <a className="anchor" href="#">
-            <AiOutlineLike color="black" />
+            {renderbtn(like)}
           </a>
           <a className="anchor" href="#">
-            1
+            {like.likeCount}
           </a>
         </span>
         <span>

@@ -59,9 +59,13 @@ hr {
   background-color: inherit;
 }
 
-svg:hover {
-  fill: #0197f6ff;
+/* .liked:hover {
+  color: #000;
 }
+
+.unliked:hover {
+  fill: #0197f6ff;
+} */
 
 .like a {
   display: inline-block;

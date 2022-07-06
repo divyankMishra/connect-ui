@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "../Footer";
 import Nav from "../Nav";
 import Home from "./Home";
@@ -8,18 +8,17 @@ import { useNavigate } from "react-router-dom";
 
 function HomePage() {
   const [home, sethome] = useState({ user: {}, posts: [] });
-  const [load, setload] = useState(false);
   let navigate = useNavigate();
-  if (!load) {
-    homepage()
-      .then((data) => {
-        if (data.error) {
-          navigate("/login");
-        } else sethome(data.body);
-      })
-      .catch((err) => console.log(err));
-    setload(true);
-  }
+  useEffect(() => {
+    async function callHome() {
+      const data = await homepage();
+      if (data.error) {
+        navigate("/login");
+      } else sethome(data.body);
+    }
+    callHome();
+  }, []);
+
   return (
     <div className="main-flex-container">
       <Nav />
