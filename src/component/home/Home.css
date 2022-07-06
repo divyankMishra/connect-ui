@@ -1,0 +1,26 @@
+/* CSS HEX */
+/* --crimson: #d7263dff;
+--oxford-blue: #02182bff;
+--dodger-blue: #0197f6ff;
+--blue-munsell: #448fa3ff;
+--middle-blue: #68c5dbff;
+#00926D
+#008080
+*/
+
+.grid-container-home {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+}
+.home-col-1 {
+  /* background-color: #0197f6ff; */
+}
+
+.home-col-2 {
+  background-color: #c1e7f0;
+}
+
+.home-col-3 {
+  /* background-color: #448fa3ff; */
+}

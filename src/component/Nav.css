@@ -23,18 +23,18 @@
   gap: 45px;
 }
 .nav--right a:link,
-a:visited {
+.nav--right a:visited {
   text-decoration: none;
   font-weight: 700;
   color: #fff;
 }
-a:hover,
-a:active {
+.nav--right a:hover,
+.nav--right a:active {
   color: #c8c8c8;
 }
 
-.signup a:link,
-a:visited {
+.signup-anchor:link,
+.signup-anchor:visited {
   display: inline-block;
   background-color: #00926d;
   padding: 7px 15px;
@@ -42,8 +42,8 @@ a:visited {
   transition: 0.3s;
 }
 
-.signup a:hover,
-a:active {
+.signup-anchor:hover,
+.signup-anchor:active {
   background-color: #00a45b;
   color: #fff;
 }

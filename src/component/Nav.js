@@ -8,13 +8,17 @@ function Nav() {
   if (location.pathname === "/signup")
     btn = (
       <div className="nav-right-item signup">
-        <a href="/login">Login</a>
+        <a className="signup-anchor" href="/login">
+          Login
+        </a>
       </div>
     );
   if (location.pathname === "/login")
     btn = (
       <div className="nav-right-item signup">
-        <a href="/signup">Signup</a>
+        <a className="signup-anchor" href="/signup">
+          Signup
+        </a>
       </div>
     );
   return (
@@ -22,7 +26,7 @@ function Nav() {
       <h1 className="nav nav--left">Connect..</h1>
       <div className="nav nav--right">
         <div className="nav-right-item">
-          <a href="#">Home</a>
+          <a href="/home">Home</a>
         </div>
         <div className="nav-right-item">
           <a href="#">Contact</a>

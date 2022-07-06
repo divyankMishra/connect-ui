@@ -19,7 +19,7 @@
   justify-content: space-between;
 }
 .links-row a:link,
-a:visited {
+.links-row a:visited {
   display: inline-block;
   padding: 0px 40px;
   text-decoration: none;
@@ -27,6 +27,6 @@ a:visited {
 }
 
 .links-row a:hover,
-a:active {
+.links-row a:active {
   background-color: #1b1b1eff;
 }
