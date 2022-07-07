@@ -2,10 +2,20 @@ import React, { useState, useEffect } from "react";
 import "./Post.css";
 import { AiOutlineLike, AiFillLike } from "react-icons/ai";
 import { VscComment } from "react-icons/vsc";
+import CommentList from "./comment/CommentList";
 
 function Post(props) {
   const [like, setlike] = useState({ likeState: false, likeCount: 0 });
   const [isHovered, setisHovered] = useState({ isHovered: false });
+  const [post, setpost] = useState({
+    id: "",
+    title: "",
+    description: "",
+    createdAt: "",
+    updatedAt: "",
+    user: {},
+    comments: [],
+  });
   const handleMouseEnter = () => {
     setisHovered({ isHovered: true });
   };
@@ -15,6 +25,9 @@ function Post(props) {
   useEffect(() => {
     setlike(props.post.likes);
   }, [props.post.likes]);
+  useEffect(() => {
+    setpost(props.post);
+  }, [props.post]);
 
   function renderbtn(like) {
     if (like.likeState)
@@ -38,9 +51,9 @@ function Post(props) {
 
   return (
     <div className="post-container">
-      <h3 className="title">{props.post.title}</h3>
+      <h3 className="title">{post.title}</h3>
       <hr />
-      <div className="description">{props.post.description}</div>
+      <div className="description">{post.description}</div>
       <hr />
       <div className="post-bottom">
         <span className="like">
@@ -58,13 +71,15 @@ function Post(props) {
         </span>
         <span>
           <a className="anchor anchor-flex" href="#">
-            <span className="bold">{props.post.user.username}</span>
-            <span>
-              {props.post.user.firstname + " " + props.post.user.lastname}
-            </span>
+            <span className="bold">{post.user.username}</span>
+            <span>{post.user.firstname + " " + post.user.lastname}</span>
           </a>
         </span>
         {/* "user":{"username":"divyan27","firstname":"Divyank","lastname":"Mishra"} */}
+      </div>
+      <hr />
+      <div className="comments">
+        <CommentList comments={post.comments} />
       </div>
     </div>
   );
